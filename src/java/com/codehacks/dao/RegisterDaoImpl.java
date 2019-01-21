@@ -12,8 +12,22 @@ public class RegisterDaoImpl implements RegisterDAO {
 
     private final Map<String, User> registeredUser = new HashMap<>();
 
+    private void createRegisteredUsers() {
+        User user1 = new User("Tom", "Tom", "Tommy", "tommy@gmail.com", "tom123");
+        User user2 = new User("Pat", "Lowe", "Pavlov", "larry@gmail.com", "larry");
+        User user3 = new User("John", "Booke", "Johnny", "harry@gmail.com", "harry");
+        User user4 = new User("Jude", "Gray", "Glow", "parry@gmail.com", "parry");
+        User user5 = new User("Blue", "Tom", "Groovy", "garry@gmail.com", "garry");
+        registeredUser.put(user1.getEmail(), user1);
+        registeredUser.put(user2.getEmail(), user2);
+        registeredUser.put(user3.getEmail(), user3);
+        registeredUser.put(user4.getEmail(), user4);
+        registeredUser.put(user5.getEmail(), user5);
+    }
+    
     @Override
     public void registerUser(User user) {
+        createRegisteredUsers();
         String email = user.getEmail();
         registeredUser.put(email, user);
         System.out.println(user.toString());
@@ -26,6 +40,7 @@ public class RegisterDaoImpl implements RegisterDAO {
 
     @Override
     public User getUser(String email) {
+        createRegisteredUsers();
         User user = registeredUser.get(email);
         return user;
     }
@@ -37,6 +52,7 @@ public class RegisterDaoImpl implements RegisterDAO {
 
     @Override
     public boolean deleteUser(String email) {
+        createRegisteredUsers();
         User user = registeredUser.get(email);
         return registeredUser.remove(email, user);
     }

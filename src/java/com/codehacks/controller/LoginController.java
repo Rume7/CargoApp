@@ -2,7 +2,10 @@ package com.codehacks.controller;
 
 import com.codehacks.dao.LoginDAO;
 import com.codehacks.dao.LoginDaoImpl;
+import com.codehacks.dao.RegisterDAO;
+import com.codehacks.dao.RegisterDaoImpl;
 import com.codehacks.model.Client;
+import com.codehacks.model.User;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,6 +36,11 @@ public class LoginController extends HttpServlet {
             Client user = new Client(email, password);
             boolean userState = loginDao.validLogin(user);
 
+            // To obtain the username of the logged in client
+            RegisterDAO reg = new RegisterDaoImpl();
+            User registeredUser = reg.getUser(email);
+            
+            request.setAttribute("newClient", registeredUser);
             if (userState) {
                 address = "welcome.jsp";
             } else {

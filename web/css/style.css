@@ -1,0 +1,28 @@
+/* 
+    Created on : Jan 21, 2019, 8:16:50 PM
+    Author     : E238958
+*/
+
+body {
+    font-family: Verdana, Arial, sans-serif;
+    padding: 50px;
+}
+
+table {
+    width: 600px;
+    padding: 10px;
+    background-color: #c5e7e0;
+}
+
+th {
+    text-align: left;
+    border-bottom: 1px solid;
+}
+
+td {
+    padding: 10px;
+}
+
+nav{
+    text-align: right;
+}
