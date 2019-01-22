@@ -1,10 +1,23 @@
 package com.codehacks.model;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author E238958
  */
-public class User {
+@Entity
+public class RegisteredUser implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     
     private String firstName;
     private String lastName;
@@ -12,15 +25,23 @@ public class User {
     private String email;
     private String password;
 
-    public User() {
+    public RegisteredUser() {
     }
 
-    public User(String firstName, String lastName, String userName, String email, String password) {
+    public RegisteredUser(String firstName, String lastName, String userName, String email, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.email = email;
         this.password = password;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {

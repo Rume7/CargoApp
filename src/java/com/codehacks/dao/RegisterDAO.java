@@ -1,6 +1,6 @@
 package com.codehacks.dao;
 
-import com.codehacks.model.User;
+import com.codehacks.model.RegisteredUser;
 
 /**
  *
@@ -10,13 +10,13 @@ public interface RegisterDAO {
     
     // CRUD
     
-    public void registerUser(User user);                     // create
+    public void registerUser(RegisteredUser user);                     // create
     
-    public boolean checkIfUserExist(User user);
+    public boolean checkIfUserExist(RegisteredUser user);
             
-    public User getUser(String email);                          // read
+    public RegisteredUser getUser(String email);                          // read
     
-    public void updateUser(User user);                       // update
+    public void updateUser(RegisteredUser user);                       // update
     
     public boolean deleteUser(String email);    // delete
     

@@ -11,6 +11,8 @@ public interface LoginDAO {
     
     public Map<String, String> retrieveAllLogins(String email, String password);
     
+    public void createLogin(Client client);
+    
     public Client retrieveLogin(String email);
     
     public boolean validLogin(Client client);

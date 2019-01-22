@@ -3,7 +3,7 @@ package com.codehacks.controller;
 import com.codehacks.dao.RegisterDAO;
 import com.codehacks.dao.RegisterDaoImpl;
 import com.codehacks.helper.EmailHelper;
-import com.codehacks.model.User;
+import com.codehacks.model.RegisteredUser;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -37,7 +37,7 @@ public class RegisterController extends HttpServlet {
                     String emailAddress = request.getParameter("emailAddress");
                     
                     // Save in a database
-                    User registerUser = new User();
+                    RegisteredUser registerUser = new RegisteredUser();
                     registerUser.setFirstName(firstName);
                     registerUser.setLastName(lastName);
                     registerUser.setUserName(username);

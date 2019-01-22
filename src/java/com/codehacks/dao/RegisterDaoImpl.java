@@ -1,6 +1,6 @@
 package com.codehacks.dao;
 
-import com.codehacks.model.User;
+import com.codehacks.model.RegisteredUser;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,14 +10,14 @@ import java.util.Map;
  */
 public class RegisterDaoImpl implements RegisterDAO {
 
-    private final Map<String, User> registeredUser = new HashMap<>();
+    private final Map<String, RegisteredUser> registeredUser = new HashMap<>();
 
     private void createRegisteredUsers() {
-        User user1 = new User("Tom", "Tom", "Tommy", "tommy@gmail.com", "tom123");
-        User user2 = new User("Pat", "Lowe", "Pavlov", "larry@gmail.com", "larry");
-        User user3 = new User("John", "Booke", "Johnny", "harry@gmail.com", "harry");
-        User user4 = new User("Jude", "Gray", "Glow", "parry@gmail.com", "parry");
-        User user5 = new User("Blue", "Tom", "Groovy", "garry@gmail.com", "garry");
+        RegisteredUser user1 = new RegisteredUser("Tom", "Tom", "Tommy", "tommy@gmail.com", "tom123");
+        RegisteredUser user2 = new RegisteredUser("Pat", "Lowe", "Pavlov", "larry@gmail.com", "larry");
+        RegisteredUser user3 = new RegisteredUser("John", "Booke", "Johnny", "harry@gmail.com", "harry");
+        RegisteredUser user4 = new RegisteredUser("Jude", "Gray", "Glow", "parry@gmail.com", "parry");
+        RegisteredUser user5 = new RegisteredUser("Blue", "Tom", "Groovy", "garry@gmail.com", "garry");
         registeredUser.put(user1.getEmail(), user1);
         registeredUser.put(user2.getEmail(), user2);
         registeredUser.put(user3.getEmail(), user3);
@@ -26,7 +26,7 @@ public class RegisterDaoImpl implements RegisterDAO {
     }
     
     @Override
-    public void registerUser(User user) {
+    public void registerUser(RegisteredUser user) {
         createRegisteredUsers();
         String email = user.getEmail();
         registeredUser.put(email, user);
@@ -34,26 +34,26 @@ public class RegisterDaoImpl implements RegisterDAO {
     }
 
     @Override
-    public boolean checkIfUserExist(User user) {
+    public boolean checkIfUserExist(RegisteredUser user) {
         return registeredUser.containsKey(user.getEmail());
     }
 
     @Override
-    public User getUser(String email) {
+    public RegisteredUser getUser(String email) {
         createRegisteredUsers();
-        User user = registeredUser.get(email);
+        RegisteredUser user = registeredUser.get(email);
         return user;
     }
 
     @Override
-    public void updateUser(User user) {
+    public void updateUser(RegisteredUser user) {
 
     }
 
     @Override
     public boolean deleteUser(String email) {
         createRegisteredUsers();
-        User user = registeredUser.get(email);
+        RegisteredUser user = registeredUser.get(email);
         return registeredUser.remove(email, user);
     }
 }
