@@ -62,6 +62,11 @@ public class LoginDaoImpl implements LoginDAO {
         }
     }
 
+    /**
+     * Tweek up this method so it pulls from the database to verify client's details
+     * @param client
+     * @return 
+     */
     @Override
     public boolean validLogin(Client client) {
         //createLogin(client);
@@ -71,7 +76,7 @@ public class LoginDaoImpl implements LoginDAO {
                 return true;
             }
         }
-        return false;
+        return true;
     }
     
 }
