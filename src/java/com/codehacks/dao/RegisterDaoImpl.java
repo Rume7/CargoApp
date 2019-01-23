@@ -22,27 +22,12 @@ public class RegisterDaoImpl implements RegisterDAO {
     @PersistenceUnit
     private EntityManagerFactory emf = null;
 
-    private final Map<String, RegisteredUser> registeredUser = new HashMap<>();
-
     public RegisterDaoImpl() {
         emf = Persistence.createEntityManagerFactory("CargoAppPU");
     }
 
     private EntityManager getEntityManager() {
         return emf.createEntityManager();
-    }
-
-    private void createRegisteredUsers() {
-        RegisteredUser user1 = new RegisteredUser("Tom", "Tom", "Tommy", "tommy@gmail.com", "tom123");
-        RegisteredUser user2 = new RegisteredUser("Pat", "Lowe", "Pavlov", "larry@gmail.com", "larry");
-        RegisteredUser user3 = new RegisteredUser("John", "Booke", "Johnny", "harry@gmail.com", "harry");
-        RegisteredUser user4 = new RegisteredUser("Jude", "Gray", "Glow", "parry@gmail.com", "parry");
-        RegisteredUser user5 = new RegisteredUser("Blue", "Tom", "Groovy", "garry@gmail.com", "garry");
-        registeredUser.put(user1.getEmail(), user1);
-        registeredUser.put(user2.getEmail(), user2);
-        registeredUser.put(user3.getEmail(), user3);
-        registeredUser.put(user4.getEmail(), user4);
-        registeredUser.put(user5.getEmail(), user5);
     }
 
     @Override
@@ -85,7 +70,7 @@ public class RegisterDaoImpl implements RegisterDAO {
         EntityManager em = null;
         try {
             em = getEntityManager();
-            usersList = findRegisteredUserEntities(true, -1, -1);
+            usersList = findRegisteredUserEntities(true);
         } finally {
             if (em != null){
                 em.close();
@@ -94,8 +79,7 @@ public class RegisterDaoImpl implements RegisterDAO {
         return usersList;
     }
     
-    private List<RegisteredUser> findRegisteredUserEntities(boolean all, 
-            int maxResults, int firstResult) {
+    private List<RegisteredUser> findRegisteredUserEntities(boolean all) {
         EntityManager em = getEntityManager();
         try {
             CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
