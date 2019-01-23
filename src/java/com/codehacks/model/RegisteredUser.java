@@ -16,13 +16,13 @@ public class RegisteredUser implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    //@GeneratedValue(strategy = GenerationType.AUTO)
+    private String email;
     
     private String firstName;
     private String lastName;
     private String userName;
-    private String email;
+    
     private String password;
 
     public RegisteredUser() {
@@ -34,14 +34,6 @@ public class RegisteredUser implements Serializable {
         this.userName = userName;
         this.email = email;
         this.password = password;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getFirstName() {

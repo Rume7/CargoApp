@@ -30,25 +30,21 @@ public class RegisterController extends HttpServlet {
             
             if (request.getParameter("registerButton").equals("REGISTER")) {
                 if (request.getParameter("password").equals(request.getParameter("confirmPassword"))) {
-                    String firstName = request.getParameter("firstName");
-                    String lastName = request.getParameter("lastName");
-                    String username = request.getParameter("username");
-                    String password = request.getParameter("password");
-                    String emailAddress = request.getParameter("emailAddress");
                     
-                    // Save in a database
                     RegisteredUser registerUser = new RegisteredUser();
-                    registerUser.setFirstName(firstName);
-                    registerUser.setLastName(lastName);
-                    registerUser.setUserName(username);
-                    registerUser.setPassword(password);
+                    registerUser.setFirstName(request.getParameter("firstName"));
+                    registerUser.setLastName(request.getParameter("lastName"));
+                    registerUser.setUserName(request.getParameter("username"));
+                    registerUser.setPassword(request.getParameter("password"));
+                    String emailAddress = request.getParameter("emailAddress");
                     registerUser.setEmail(emailAddress);
                     
                     // Check if the user is not registered 
                     if (!registerDAO.checkIfUserExist(registerUser)) {
+                        // Save in a database
                         registerDAO.registerUser(registerUser);
                         // Check your email and click the link to confirm registration.
-                        EmailHelper.sendEmail3(emailAddress);
+                        //EmailHelper.sendEmail3(emailAddress);
                         address = "login.jsp";
                     } else {
                         // Enter new registration details

@@ -130,7 +130,7 @@ public class EmailHelper {
 
             msg.setSubject("Sample Mail : " + timeStamp);
             msg.setSentDate(new Date());
-            msg.setText("Sampel System Generated mail");
+            msg.setText("Sample System Generated mail");
             msg.setHeader("XPriority", "1");
 
             Transport.send(msg);
