@@ -91,6 +91,6 @@ public class AdminOfficer implements Serializable {
 
     @Override
     public String toString() {
-        return "Admin{" + "email=" + email + '}';
+        return "Admin{" + " email = " + email + '}';
     }
 }

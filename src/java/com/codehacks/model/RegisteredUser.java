@@ -2,8 +2,6 @@ package com.codehacks.model;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -16,7 +14,6 @@ public class RegisteredUser implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
-    //@GeneratedValue(strategy = GenerationType.AUTO)
     private String email;
     
     private String firstName;
@@ -78,6 +75,6 @@ public class RegisteredUser implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" + "userName= " + userName + ", email= " + email + '}';
+        return "Username = " + userName ;
     }
 }

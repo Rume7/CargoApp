@@ -9,16 +9,14 @@ import com.codehacks.model.RegisteredUser;
  */
 public interface RegisterDAO {
     
-    // CRUD
-    
     public void registerUser(RegisteredUser user);                     // create
     
     public boolean checkIfUserExist(RegisteredUser user);
             
     public RegisteredUser getUser(String email);                          // read
     
-    public void updateUser(RegisteredUser user) throws NonexistentEntityException,
-            Exception;
+    public void updateUser(RegisteredUser user) throws 
+            NonexistentEntityException, Exception;
     
     public void deleteUser(String email) throws NonexistentEntityException;    // delete
     

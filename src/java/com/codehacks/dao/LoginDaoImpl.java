@@ -1,8 +1,7 @@
 package com.codehacks.dao;
 
 import com.codehacks.model.Client;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -17,8 +16,6 @@ public class LoginDaoImpl implements LoginDAO {
     @PersistenceUnit
     private EntityManagerFactory emf = null;
     
-    private final Map<String, String> clientLogin = new HashMap<>();
-
     public LoginDaoImpl() {
         emf = Persistence.createEntityManagerFactory("CargoAppPU");
     }
@@ -28,27 +25,7 @@ public class LoginDaoImpl implements LoginDAO {
     }
     
     @Override
-    public Map<String, String> retrieveAllLogins(String email, String password) {
-          return clientLogin;
-    }
-    
-    @Override
-    public Client retrieveLogin(String email) {
-        String clientPassword = clientLogin.get(email);
-        Client c1 = new Client();
-        c1.setEmail(email);
-        c1.setPassword(clientPassword);
-        return c1;
-    }
-    
-    @Override
     public void createLogin(Client client) {
-        clientLogin.put("barry@gmail.com", "barry");
-        clientLogin.put("larry@gmail.com", "larry");
-        clientLogin.put("harry@gmail.com", "harry");
-        clientLogin.put("garry@gmail.com", "garry");
-        clientLogin.put("parry@gmail.com", "parry");
-        
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -60,23 +37,5 @@ public class LoginDaoImpl implements LoginDAO {
                 em.close();
             }
         }
-    }
-
-    /**
-     * Tweek up this method so it pulls from the database to verify client's details
-     * @param client
-     * @return 
-     */
-    @Override
-    public boolean validLogin(Client client) {
-        //createLogin(client);
-        if (clientLogin.containsKey(client.getEmail())) {
-            String clientValue = clientLogin.get(client.getEmail());
-            if (clientValue.equals(client.getPassword())) {
-                return true;
-            }
-        }
-        return true;
-    }
-    
+    }    
 }

@@ -14,7 +14,7 @@
     </head>
     <body>
         <nav><a href="login.jsp">Logout</a></nav>
-        <h2>Congratulations ${newClient.userName}, you have successfully logged in </h2>
+        <h2>Hallo ${newClient.userName}, you have successfully logged in </h2>
         <p>
             The statuses of your items are shown below.
         </p>

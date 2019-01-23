@@ -24,8 +24,8 @@ import javax.mail.internet.MimeMultipart;
 public class EmailHelper {
 
     public static boolean sendEmail(String emailAddress) {
-        String to = "rubytech7@gmail.com";
-        String from = "electengrhume@gmail.com";
+        String to = "rubytech7@yahoo.com";
+        String from = "electengrhume@yahoo.com";
         String host = "localhost";
 
         // Get the session object
@@ -61,8 +61,8 @@ public class EmailHelper {
             prop.put("mail.smtp.port", "587");
             //prop.put("mail.smtp.ssl.trust", "smtp.mailtrap.io");
 
-            String username = "electengrhume@gmail.com";
-            String password = "raconteur7";
+            String username = "electengrhume@yahoo.com";
+            String password = "raco";
             Session session = Session.getInstance(prop, new Authenticator() {
                 @Override
                 protected PasswordAuthentication getPasswordAuthentication() {
@@ -71,9 +71,9 @@ public class EmailHelper {
             });
 
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("electengrhume@gmail.com"));
+            message.setFrom(new InternetAddress("electengrhume@yahoo.com"));
             message.setRecipients(
-                    Message.RecipientType.TO, InternetAddress.parse("rubytech7@gmail.com"));
+                    Message.RecipientType.TO, InternetAddress.parse("rubytech7@yahoo.com"));
             message.setSubject("Confirm Registration on Cargo App");
 
             String msg = "Thanks for registering with us. "
@@ -108,7 +108,7 @@ public class EmailHelper {
         Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("electengrhume@gmail.com", "raconteur7");
+                return new PasswordAuthentication("electengrhume@yahoo.com", "raco");
             }
         });
 
