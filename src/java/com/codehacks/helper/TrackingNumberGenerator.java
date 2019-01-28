@@ -41,13 +41,14 @@ public class TrackingNumberGenerator {
             sb.append(getUpperCaseLetter());
         }
         sb.append(getADigit());
+        sb.append("-");
         for (int index = 1; index <= 3; index++) {
             sb.append(getUpperCaseLetter());
         }
+        sb.append("-");
         for (int index = 1; index <= 2; index++) {
             sb.append(getADigit());
         }
-
         sb.append(getUpperCaseLetter());
         return sb.toString();
     }
