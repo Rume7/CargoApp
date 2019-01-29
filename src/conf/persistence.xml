@@ -5,6 +5,7 @@
     <class>com.codehacks.model.Client</class>
     <class>com.codehacks.model.AdminOfficer</class>
     <class>com.codehacks.model.RegisteredUser</class>
+    <class>com.codehacks.model.Goods</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/cargodb?zeroDateTimeBehavior=convertToNull"/>

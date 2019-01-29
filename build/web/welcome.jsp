@@ -18,39 +18,32 @@
         <p>
             The statuses of your items are shown below.
         </p>
-        
-        <table>
-            <thead>
-                <tr>
-                    <td><b>S/N</b></td>
-                    <td><b>Item</b></td>
-                    <td><b>Status</b></td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Camera</td>
-                    <td>Ready for pickup</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Mac Book Pro</td>
-                    <td>Ready for pickup</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Sofa</td>
-                    <td>Not in country</td>
-                </tr>
-                
-                <tr>
-                    <td>4</td>
-                    <td>IPad</td>
-                    <td>Not available</td>
-                </tr>
-            </tbody>
-        </table>
-        
+
+        <form action="items" method="POST">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Email Address </td>
+                        <td><input type="email" name="emailAdd" value="${newClient.email}" /></td>
+                    </tr>
+                    <tr>
+                        <td>Item Name</td>
+                        <td><input type="text" name="itemName" value="" /></td>
+                    </tr>
+                    <tr>
+                        <td>Quantity</td>
+                        <td><input type="text" name="quantity" value="1" /></td>
+                    </tr>
+                    <tr>
+                        <td>Current Location</td>
+                        <td><input type="text" name="currentLocationOfGood" value="" /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="submit" name="submitButton" value="SUBMIT" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
     </body>
 </html>
